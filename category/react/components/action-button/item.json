@@ -1,0 +1,6 @@
+{
+  "title": "Action button",
+  "description": "Animated button with confirmation feedback.",
+  "kind": "component",
+  "tags": ["Tailwind v4", "Interactive"]
+}

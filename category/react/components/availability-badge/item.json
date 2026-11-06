@@ -1,0 +1,6 @@
+{
+  "title": "Availability badge",
+  "description": "Availability status toggle.",
+  "kind": "component",
+  "tags": ["Tailwind v4", "Status"]
+}

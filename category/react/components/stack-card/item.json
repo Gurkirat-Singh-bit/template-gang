@@ -1,0 +1,6 @@
+{
+  "title": "Project card",
+  "description": "Project card with a save toggle.",
+  "kind": "component",
+  "tags": ["Tailwind v4", "Card"]
+}

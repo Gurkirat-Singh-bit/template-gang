@@ -1,0 +1,6 @@
+{
+  "title": "Expo starter",
+  "description": "An Android app starter with Expo Router, TypeScript, Bun, and Phosphor icons.",
+  "kind": "template",
+  "tags": ["TypeScript", "Android"]
+}
