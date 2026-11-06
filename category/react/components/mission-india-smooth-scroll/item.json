@@ -1,0 +1,11 @@
+{
+  "title": "Mission India Smooth Scroll",
+  "description": "Smooth Scroll adapted from Mission India.",
+  "kind": "component",
+  "tags": ["Mission India", "Section"],
+  "source": {
+    "project": "Mission India",
+    "file": "components/smooth-scroll.tsx",
+    "sha256": "a63146308a71c1048c4688b3551a8e16c7e3640931eb277d88a595da0367b29e"
+  }
+}

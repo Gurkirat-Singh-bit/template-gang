@@ -1,0 +1,11 @@
+{
+  "title": "Mission India Faq Accordion",
+  "description": "Faq Accordion adapted from Mission India.",
+  "kind": "component",
+  "tags": ["Mission India", "Section"],
+  "source": {
+    "project": "Mission India",
+    "file": "components/faq-accordion.tsx",
+    "sha256": "da7343469f3968a2a715f485807b5f93de17973d0dc01582507c1c7b023c2815"
+  }
+}

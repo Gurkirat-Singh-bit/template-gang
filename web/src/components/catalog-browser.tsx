@@ -32,8 +32,27 @@ function ResourceItem({
   index: number;
 }) {
   const [previewHeight, setPreviewHeight] = useState(220);
+  const scaledPreview = entry.files.includes("component.tsx");
+  const [previewScale, setPreviewScale] = useState(1);
   const [previewReady, setPreviewReady] = useState(false);
   const previewFrame = useRef<HTMLIFrameElement>(null);
+  const thumbnailContainer = useRef<HTMLDivElement>(null);
+  const [previewInView, setPreviewInView] = useState(false);
+  useEffect(() => {
+    const container = thumbnailContainer.current;
+    if (!container || previewInView) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPreviewInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
+    );
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [list, previewInView]);
   useEffect(() => {
     const frame = previewFrame.current;
     if (!frame) return;
@@ -59,13 +78,20 @@ function ResourceItem({
           const padding =
             parseFloat(style?.paddingTop ?? "0") +
             parseFloat(style?.paddingBottom ?? "0");
+          const scale = scaledPreview
+            ? (frame.parentElement?.clientWidth ?? 1280) / 1280
+            : 1;
+          const measuredHeight = Math.ceil(
+            example.getBoundingClientRect().height + padding + 2,
+          );
+          setPreviewScale(scale);
           setPreviewReady(true);
           setPreviewHeight(
             Math.max(
               220,
               Math.min(
                 420,
-                Math.ceil(example.getBoundingClientRect().height + padding + 2),
+                Math.ceil((scaledPreview ? 900 : measuredHeight) * scale),
               ),
             ),
           );
@@ -73,6 +99,7 @@ function ResourceItem({
         animation = requestAnimationFrame(fit);
         resize = new ResizeObserver(fit);
         resize.observe(example);
+        if (frame.parentElement) resize.observe(frame.parentElement);
         mutations?.disconnect();
       };
       mutations = new MutationObserver(connect);
@@ -88,7 +115,7 @@ function ResourceItem({
       mutations?.disconnect();
       cancelAnimationFrame(animation);
     };
-  }, [list, entry.preview]);
+  }, [list, entry.preview, scaledPreview, previewInView]);
   return (
     <Link
       href={`/item/${entry.id}`}
@@ -97,15 +124,29 @@ function ResourceItem({
       className={`resource-item ${entry.kind === "component" && !list ? "resource-item--showcase" : "resource-item--row"}`}
     >
       {entry.kind === "component" && !list ? (
-        <div className="resource-preview" style={{ height: previewHeight }}>
+        <div
+          ref={thumbnailContainer}
+          className="resource-preview"
+          style={{ height: previewHeight }}
+        >
           {entry.preview && !previewReady && (
             <div className="thumbnail-skeleton">
               <PreviewSkeleton />
             </div>
           )}
-          {entry.preview ? (
+          {entry.preview && previewInView ? (
             <iframe
-              src={`/preview/${entry.id}`}
+              style={
+                scaledPreview
+                  ? {
+                      width: 1280,
+                      height: 900,
+                      transform: `scale(${previewScale})`,
+                      transformOrigin: "top left",
+                    }
+                  : undefined
+              }
+              src={`/preview/${entry.id}${scaledPreview ? "?thumbnail=1" : ""}`}
               title={`${entry.title} thumbnail`}
               tabIndex={-1}
               loading="lazy"
@@ -113,12 +154,12 @@ function ResourceItem({
               aria-hidden="true"
               ref={previewFrame}
             />
-          ) : (
+          ) : !entry.preview ? (
             <div className="preview-placeholder">
               <CodeIcon size={24} />
               <span>Source available</span>
             </div>
-          )}
+          ) : null}
           <span className="preview-open">
             <ArrowUpRightIcon size={16} />
           </span>

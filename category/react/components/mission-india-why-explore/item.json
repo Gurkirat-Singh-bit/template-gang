@@ -1,0 +1,11 @@
+{
+  "title": "Mission India Why Explore",
+  "description": "Why Explore adapted from Mission India.",
+  "kind": "component",
+  "tags": ["Mission India", "Section"],
+  "source": {
+    "project": "Mission India",
+    "file": "components/why-explore.tsx",
+    "sha256": "a73512fca96e0d9e6ce64962ef365fcbd30fa0ec142bcc3bdbb4b5992194197c"
+  }
+}

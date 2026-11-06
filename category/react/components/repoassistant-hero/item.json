@@ -1,0 +1,11 @@
+{
+  "title": "RepoAssistant Hero",
+  "description": "Hero adapted from RepoAssistant.",
+  "kind": "component",
+  "tags": ["RepoAssistant", "Section"],
+  "source": {
+    "project": "RepoAssistant",
+    "file": "src/components/Hero.tsx",
+    "sha256": "7a55934445b29682d46351a7b9867222d9350eb612144d26fd6858cca4f4b7f4"
+  }
+}

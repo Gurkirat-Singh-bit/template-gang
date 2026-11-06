@@ -1,0 +1,11 @@
+{
+  "title": "RepoAssistant Integrations",
+  "description": "Integrations adapted from RepoAssistant.",
+  "kind": "component",
+  "tags": ["RepoAssistant", "Section"],
+  "source": {
+    "project": "RepoAssistant",
+    "file": "src/components/Integrations.tsx",
+    "sha256": "cd166b12a3a1c343f9d61400d791606f0c98c65781f6d75baa237ea0969eb383"
+  }
+}

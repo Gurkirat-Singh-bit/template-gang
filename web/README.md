@@ -69,7 +69,7 @@ Supported kinds: `component`, `template`, `resource`. The file is optional. Keep
 3. Add `"use client"` to components using hooks or browser events.
 4. Restart `bun run dev` after adding a new preview.
 
-The generated preview registry imports the real source, keeping previews and source tabs synchronized. It is generated before dev/build and is not committed. The examples follow the shared theme; the Action button adapts VengeanceUI AnimatedButton under its MIT license. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+The generated preview registry loads the selected real source on demand, keeping previews and source tabs synchronized. It is generated before dev/build and is not committed. The examples follow the shared theme; the Action button adapts VengeanceUI AnimatedButton under its MIT license. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 Tailwind scans `category/` as well as the frontend. React imports from category files resolve to the frontend's React installation. Install any other preview dependencies with `bun add` in `web/`. Examples should use relative imports within their folders rather than assuming the original project's path aliases exist.
 
@@ -98,3 +98,9 @@ bun run test:e2e
 The suite starts its own development server on port 3100. If a development server is already running, use `WAREHOUSE_BASE_URL=http://localhost:3000 bun run test:e2e` to reuse it. Tests cover browsing, filters, keyboard navigation, interactive previews, source/clipboard errors, dialogs, mobile layout, and missing resources.
 
 The interface uses carbon black and self-hosted JetBrains Mono. Shared tokens and design decisions are documented in [DESIGN.md](DESIGN.md).
+
+## Imported components
+
+The React category includes 10 Mission India components and 22 RepoAssistant components, each with its own preview, implementation, scoped styles, local assets, and usage notes. Open an item to preview it or copy its source. Copy the entire item folder when reusing it; `component.tsx` contains the implementation and `index.tsx` supplies its theme wrapper.
+
+The original source projects are untouched. Interest, booking, checkout, and URL-check integrations use clearly labeled local demos. Connect the documented `onSubmit`, `onBook`, or `testUrl` callbacks to your own services. Calculators keep their original calculations. Catalog thumbnails scale larger sections; the item viewer renders the real responsive component.

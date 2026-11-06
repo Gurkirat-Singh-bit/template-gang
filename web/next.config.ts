@@ -8,12 +8,16 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(import.meta.dirname, ".."),
     // Category examples live outside web/, but share its installed dependencies.
-    resolveAlias: Object.fromEntries(
-      Object.keys(manifest.dependencies).map((name) => [
-        name,
-        `./node_modules/${name}`,
-      ]),
-    ),
+    resolveAlias: {
+      "@phosphor-icons/react/ssr":
+        "./node_modules/@phosphor-icons/react/dist/ssr/index.es.js",
+      ...Object.fromEntries(
+        Object.keys(manifest.dependencies).map((name) => [
+          name,
+          `./node_modules/${name}`,
+        ]),
+      ),
+    },
     rules: {
       "*.css": {
         loaders: ["@tailwindcss/turbopack"],

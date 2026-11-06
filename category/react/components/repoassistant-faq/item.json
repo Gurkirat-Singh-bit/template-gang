@@ -1,0 +1,11 @@
+{
+  "title": "RepoAssistant FAQ",
+  "description": "FAQ adapted from RepoAssistant.",
+  "kind": "component",
+  "tags": ["RepoAssistant", "Section"],
+  "source": {
+    "project": "RepoAssistant",
+    "file": "src/components/FAQ.tsx",
+    "sha256": "f99c95fd8408d82a9a6311c17ef3f244ab019154c6cd045445758f9c2283741d"
+  }
+}

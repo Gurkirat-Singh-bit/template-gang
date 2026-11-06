@@ -1,0 +1,11 @@
+{
+  "title": "RepoAssistant CTA",
+  "description": "CTA adapted from RepoAssistant.",
+  "kind": "component",
+  "tags": ["RepoAssistant", "Section"],
+  "source": {
+    "project": "RepoAssistant",
+    "file": "src/components/CTA.tsx",
+    "sha256": "680bd4c08c6cac5ee27430974bbbdba46b41be2e7329f51f13fe0d800c5f3e98"
+  }
+}

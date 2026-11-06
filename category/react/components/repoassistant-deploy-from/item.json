@@ -1,0 +1,11 @@
+{
+  "title": "RepoAssistant Deploy From",
+  "description": "Deploy From adapted from RepoAssistant.",
+  "kind": "component",
+  "tags": ["RepoAssistant", "Section"],
+  "source": {
+    "project": "RepoAssistant",
+    "file": "src/components/DeployFrom.tsx",
+    "sha256": "1784056546657b44043c46ba527b7f16b5879fb64878f8ee240514b3b48e826b"
+  }
+}

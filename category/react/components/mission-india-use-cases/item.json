@@ -1,0 +1,11 @@
+{
+  "title": "Mission India Use Cases",
+  "description": "Use Cases adapted from Mission India.",
+  "kind": "component",
+  "tags": ["Mission India", "Section"],
+  "source": {
+    "project": "Mission India",
+    "file": "components/use-cases.tsx",
+    "sha256": "c013d44cd42ddedde163fc68e12c79618bc69a82999b37d8411136a98a85a3e0"
+  }
+}

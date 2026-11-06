@@ -24,7 +24,10 @@
       "react/*": ["./node_modules/@types/react/*"],
       "react-dom": ["./node_modules/@types/react-dom"],
       "react-dom/*": ["./node_modules/@types/react-dom/*"],
-      "*": ["./node_modules/*"]
+      "*": ["./node_modules/*"],
+      "@phosphor-icons/react/ssr": [
+        "./node_modules/@phosphor-icons/react/dist/ssr/index.d.ts"
+      ]
     }
   },
   "include": [

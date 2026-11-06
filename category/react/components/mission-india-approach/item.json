@@ -1,0 +1,11 @@
+{
+  "title": "Mission India Approach",
+  "description": "Approach adapted from Mission India.",
+  "kind": "component",
+  "tags": ["Mission India", "Section"],
+  "source": {
+    "project": "Mission India",
+    "file": "components/approach.tsx",
+    "sha256": "f9e434b7e069601469e48b1cbd16ac9a76158910407da72646ffc7faf6e9d162"
+  }
+}

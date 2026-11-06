@@ -1,0 +1,11 @@
+{
+  "title": "RepoAssistant Capabilities",
+  "description": "Capabilities adapted from RepoAssistant.",
+  "kind": "component",
+  "tags": ["RepoAssistant", "Section"],
+  "source": {
+    "project": "RepoAssistant",
+    "file": "src/components/Capabilities.tsx",
+    "sha256": "3b4bc7aefbf5d333272003c4d99b058454cef361749592e3fe0d13d0e2fab870"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "title": "RepoAssistant Project Intake Button",
+  "description": "Project Intake Button adapted from RepoAssistant.",
+  "kind": "component",
+  "tags": ["RepoAssistant", "Button"],
+  "source": {
+    "project": "RepoAssistant",
+    "file": "src/components/ProjectIntakeButton.tsx",
+    "sha256": "0d9c503fa403c2f612966aec5148f48f78ee221cc534ed5486ee3ef304f10ca5"
+  }
+}

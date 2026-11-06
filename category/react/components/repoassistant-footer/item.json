@@ -1,0 +1,11 @@
+{
+  "title": "RepoAssistant Footer",
+  "description": "Footer adapted from RepoAssistant.",
+  "kind": "component",
+  "tags": ["RepoAssistant", "Section"],
+  "source": {
+    "project": "RepoAssistant",
+    "file": "src/components/Footer.tsx",
+    "sha256": "60c654bf9e606f757561ff37b25c6123b4889de6249f08c2b23e53cbc5a2d614"
+  }
+}

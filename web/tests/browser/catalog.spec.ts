@@ -1,4 +1,9 @@
 import { expect, test, type Page } from "@playwright/test";
+import { readdirSync } from "node:fs";
+const componentCount = readdirSync("../category/react/components", {
+  withFileTypes: true,
+}).filter((entry) => entry.isDirectory()).length;
+const resourceCount = componentCount + 1;
 
 async function expectNoOverflow(page: Page) {
   expect(
@@ -9,7 +14,9 @@ async function expectNoOverflow(page: Page) {
 }
 
 async function loadShowcases(page: Page) {
-  const frames = page.locator(".resource-item--showcase iframe");
+  const frames = page.locator(
+    '.resource-item--showcase iframe[title="Action button thumbnail"], .resource-item--showcase iframe[title="Availability badge thumbnail"], .resource-item--showcase iframe[title="Stack card thumbnail"]',
+  );
   for (let index = 0; index < (await frames.count()); index++) {
     const frame = frames.nth(index);
     await frame.scrollIntoViewIfNeeded();
@@ -23,9 +30,9 @@ test("carbon catalog, category discovery, filters, search and layout switching",
 }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
-  await page.goto("/");
+  await page.goto("/", { waitUntil: "domcontentloaded" });
   await expect(page.getByRole("heading", { name: "Library" })).toBeVisible();
-  await expect(page.locator(".resource-item")).toHaveCount(4);
+  await expect(page.locator(".resource-item")).toHaveCount(resourceCount);
   await expect(page.locator("body")).toHaveCSS(
     "background-color",
     "rgb(8, 8, 8)",
@@ -41,7 +48,7 @@ test("carbon catalog, category discovery, filters, search and layout switching",
   const search = page.getByRole("textbox", { name: "Find a resource" });
   await page.keyboard.press("Control+k");
   await expect(search).toBeFocused();
-  await search.fill("button");
+  await search.fill("action button");
   await expect(page.locator(".resource-item")).toHaveCount(1);
   await page.getByRole("button", { name: "Clear search" }).click();
   await page.getByRole("combobox", { name: "Sort by", exact: true }).click();
@@ -49,9 +56,11 @@ test("carbon catalog, category discovery, filters, search and layout switching",
     .getByRole("option", { name: "Recently added", exact: true })
     .click();
   await page.getByRole("button", { name: "List view" }).click();
-  await expect(page.locator(".resource-item--row")).toHaveCount(4);
+  await expect(page.locator(".resource-item--row")).toHaveCount(resourceCount);
   await page.getByRole("button", { name: "Grid view" }).click();
-  await expect(page.locator(".resource-item--showcase")).toHaveCount(3);
+  await expect(page.locator(".resource-item--showcase")).toHaveCount(
+    componentCount,
+  );
   await page.getByRole("tab", { name: "Templates", exact: true }).click();
   await expect(page.locator(".resource-item")).toHaveCount(1);
   await page.getByRole("tab", { name: "Everything", exact: true }).click();
@@ -63,7 +72,9 @@ test("preview interaction, responsive controls, keyboard tabs and persistent dem
   context,
 }) => {
   await context.grantPermissions(["clipboard-read", "clipboard-write"]);
-  await page.goto("/item/react/components/action-button");
+  await page.goto("/item/react/components/action-button", {
+    waitUntil: "domcontentloaded",
+  });
   const action = page
     .frameLocator('iframe[title="Action button interactive preview"]')
     .getByRole("button", { name: /Start building|Ready to build/ });
@@ -105,7 +116,9 @@ test("preview interaction, responsive controls, keyboard tabs and persistent dem
 test("source loading and retry states retain a useful, selectable code view", async ({
   page,
 }, testInfo) => {
-  await page.goto("/item/react/components/action-button");
+  await page.goto("/item/react/components/action-button", {
+    waitUntil: "domcontentloaded",
+  });
   await page.getByRole("tab", { name: "Source code", exact: true }).click();
   let release: () => void = () => {};
   const gate = new Promise<void>((resolve) => {
@@ -151,7 +164,7 @@ test("add-resource dialog: focus, scrolling, clipboard feedback and Escape", asy
   context,
 }, testInfo) => {
   await context.grantPermissions(["clipboard-read", "clipboard-write"]);
-  await page.goto("/");
+  await page.goto("/", { waitUntil: "domcontentloaded" });
   const trigger = page.getByRole("button", {
     name: "Add resource",
     exact: true,
@@ -185,7 +198,7 @@ test("existing template docs, disabled preview and missing routes", async ({
   page,
   request,
 }, testInfo) => {
-  await page.goto("/item/expo/expo-01");
+  await page.goto("/item/expo/expo-01", { waitUntil: "domcontentloaded" });
   await expect(page.locator(".markdown")).toContainText("bun install");
   await expect(
     page.getByRole("tab", { name: "Preview", exact: true }),
@@ -193,7 +206,9 @@ test("existing template docs, disabled preview and missing routes", async ({
   await page.getByRole("tab", { name: "Source code", exact: true }).click();
   await page.getByRole("button", { name: "package.json", exact: true }).click();
   await expect(page.locator(".code-panel pre")).toContainText('"expo"');
-  await page.goto("/item/expo/not-a-real-project");
+  await page.goto("/item/expo/not-a-real-project", {
+    waitUntil: "domcontentloaded",
+  });
   await expect(
     page.getByRole("heading", { name: "This resource isn’t here." }),
   ).toBeVisible();
@@ -215,19 +230,23 @@ test("desktop and mobile layouts, visible scrollbars and mobile source selection
   page,
 }, testInfo) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
-  await page.goto("/");
+  await page.goto("/", { waitUntil: "domcontentloaded" });
   await loadShowcases(page);
   await expect
     .poll(async () =>
-      page.locator(".resource-preview").evaluateAll((elements) =>
-        elements.every((element) => {
-          const frame = element.querySelector("iframe");
-          return (
-            !!frame?.contentDocument &&
-            frame.contentDocument.body.scrollHeight <= frame.clientHeight + 2
-          );
-        }),
-      ),
+      page
+        .locator(
+          '.resource-preview:has(iframe[title="Action button thumbnail"]), .resource-preview:has(iframe[title="Availability badge thumbnail"]), .resource-preview:has(iframe[title="Stack card thumbnail"])',
+        )
+        .evaluateAll((elements) =>
+          elements.every((element) => {
+            const frame = element.querySelector("iframe");
+            return (
+              !!frame?.contentDocument &&
+              frame.contentDocument.body.scrollHeight <= frame.clientHeight + 2
+            );
+          }),
+        ),
     )
     .toBe(true);
   await page.evaluate(() => document.fonts.ready);
@@ -259,7 +278,9 @@ test("desktop and mobile layouts, visible scrollbars and mobile source selection
   await menu.getByRole("button", { name: /^Docker/ }).click();
   await expect(menu).not.toBeVisible();
   await expect(page.getByText("No resources yet")).toBeVisible();
-  await page.goto("/item/react/components/action-button");
+  await page.goto("/item/react/components/action-button", {
+    waitUntil: "domcontentloaded",
+  });
   await page.getByRole("tab", { name: "Source code", exact: true }).click();
   await page
     .getByRole("combobox", { name: "Source file", exact: true })

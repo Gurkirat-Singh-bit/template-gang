@@ -1,0 +1,11 @@
+{
+  "title": "Mission India Site Header",
+  "description": "Site Header adapted from Mission India.",
+  "kind": "component",
+  "tags": ["Mission India", "Section"],
+  "source": {
+    "project": "Mission India",
+    "file": "components/site-header.tsx",
+    "sha256": "72c4101665cb2615c5af106b2d584ec0697519d70ccfdf812947e5b7cdc17c97"
+  }
+}

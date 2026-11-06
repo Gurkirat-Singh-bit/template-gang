@@ -1,0 +1,11 @@
+{
+  "title": "RepoAssistant Vps Cost Calculator",
+  "description": "Vps Cost Calculator adapted from RepoAssistant.",
+  "kind": "component",
+  "tags": ["RepoAssistant", "Tool"],
+  "source": {
+    "project": "RepoAssistant",
+    "file": "src/components/tools/vps-cost-calculator.tsx",
+    "sha256": "3b5e368c209368bdb5a6c29fcf3120c1d34ad58aa9c3eba31480bbec7bc26c41"
+  }
+}

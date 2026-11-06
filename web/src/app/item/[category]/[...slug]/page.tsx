@@ -16,6 +16,7 @@ export default async function ItemPage({
   );
   if (!entry) notFound();
   const initialFile =
+    entry.files.find((file) => file === "component.tsx") ??
     entry.files.find((file) => file === "index.tsx") ??
     entry.files.find((file) => /\.(tsx?|jsx?)$/.test(file)) ??
     entry.files[0];

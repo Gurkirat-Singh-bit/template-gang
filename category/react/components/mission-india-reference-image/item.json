@@ -1,0 +1,11 @@
+{
+  "title": "Mission India Reference Image",
+  "description": "Reference Image adapted from Mission India.",
+  "kind": "component",
+  "tags": ["Mission India", "Section"],
+  "source": {
+    "project": "Mission India",
+    "file": "components/reference-image.tsx",
+    "sha256": "2bc3c6b8596c91321604efe0709a512e8bcae5384563227dc7841691150b2d29"
+  }
+}

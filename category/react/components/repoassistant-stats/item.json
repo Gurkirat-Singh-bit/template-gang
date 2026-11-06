@@ -1,0 +1,11 @@
+{
+  "title": "RepoAssistant Stats",
+  "description": "Stats adapted from RepoAssistant.",
+  "kind": "component",
+  "tags": ["RepoAssistant", "Section"],
+  "source": {
+    "project": "RepoAssistant",
+    "file": "src/components/Stats.tsx",
+    "sha256": "12521f26c99fe2cfa282dfb112981d2b8ed68e4ff91d69beacb70ead18972690"
+  }
+}

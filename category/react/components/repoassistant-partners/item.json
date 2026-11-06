@@ -1,0 +1,11 @@
+{
+  "title": "RepoAssistant Partners",
+  "description": "Partners adapted from RepoAssistant.",
+  "kind": "component",
+  "tags": ["RepoAssistant", "Section"],
+  "source": {
+    "project": "RepoAssistant",
+    "file": "src/components/Partners.tsx",
+    "sha256": "eb5c47945809dcbfdb2894d851af45a669fae68c397b35ee3c9a37885fea9a32"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "title": "RepoAssistant Cal Popup Button",
+  "description": "Cal Popup Button adapted from RepoAssistant.",
+  "kind": "component",
+  "tags": ["RepoAssistant", "Button"],
+  "source": {
+    "project": "RepoAssistant",
+    "file": "src/components/CalPopupButton.tsx",
+    "sha256": "57ee7543b9304d517639c12cb8ee16508ac7465fcd7976c6ece1e98439f4e4b8"
+  }
+}

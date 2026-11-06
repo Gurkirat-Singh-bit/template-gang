@@ -1,0 +1,11 @@
+{
+  "title": "RepoAssistant Pricing Preview",
+  "description": "Pricing Preview adapted from RepoAssistant.",
+  "kind": "component",
+  "tags": ["RepoAssistant", "Section"],
+  "source": {
+    "project": "RepoAssistant",
+    "file": "src/components/PricingPreview.tsx",
+    "sha256": "4c7b7318ea1d84c7f38ebb4198fc721ba9d73cfce62e1da0c22e7b2ab6ade8d7"
+  }
+}

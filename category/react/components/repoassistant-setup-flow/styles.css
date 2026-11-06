@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "RepoAssistant Inter";
+  src: url("./assets/source-font.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+.ra-scope {
+  display: flow-root;
+  width: 100%;
+  color-scheme: light;
+  font-family: "RepoAssistant Inter", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background: #f5f5f5;
+  color: #171717;
+  --font-geist: "RepoAssistant Inter";
+  --font-inter: "RepoAssistant Inter";
+  --font-jetbrains-mono: var(--font-jetbrains);
+  --color-wisteria-blue-300: #94afd1;
+  --color-wisteria-blue-600: #567ca8;
+}
+.ra-scope {
+  scroll-behavior: smooth;
+}
+
+/* White scrollbar */
+.ra-scope ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ra-scope ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.ra-scope ::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+.ra-scope ::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ra-scope .ra-animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.ra-calendar-dialog,
+.ra-intake-dialog {
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  width: min(600px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  color: #171717;
+  background: white;
+}
+.ra-calendar-dialog::backdrop,
+.ra-intake-dialog::backdrop {
+  background: #0008;
+}
+
+/* Original application layout: p-3, centered, maximum 1600px. */
+.ra-scope {
+  padding: 12px;
+  max-width: 1600px;
+  margin-inline: auto;
+}

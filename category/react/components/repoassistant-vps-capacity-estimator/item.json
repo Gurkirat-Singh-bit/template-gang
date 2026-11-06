@@ -1,0 +1,11 @@
+{
+  "title": "RepoAssistant Vps Capacity Estimator",
+  "description": "Vps Capacity Estimator adapted from RepoAssistant.",
+  "kind": "component",
+  "tags": ["RepoAssistant", "Tool"],
+  "source": {
+    "project": "RepoAssistant",
+    "file": "src/components/tools/vps-capacity-estimator.tsx",
+    "sha256": "4621356dee9f38daca7d3a302eb93d507a77246a3dd35714b15be01becd76f18"
+  }
+}

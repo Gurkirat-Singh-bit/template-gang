@@ -3,6 +3,12 @@
 
 /* VengeanceUI structure and tokens, with the requested carbon palette and JetBrains Mono. */
 @theme inline {
+  --color-mi-paper: #faf9f6;
+  --color-mi-ink: #14191b;
+  --color-mi-wisteria-blue-300: #94afd1;
+  --color-mi-wisteria-blue-600: #567ca8;
+  --color-ra-soft-green: #edf4ea;
+  --shadow-ra-integration: 0 6px 18.6px rgb(208 208 208 / 45%);
   --font-sans: var(--font-jetbrains), monospace;
   --font-display: var(--font-jetbrains), monospace;
   --font-mono: var(--font-jetbrains), monospace;
@@ -2032,4 +2038,65 @@
   .skeleton-navigation {
     display: none;
   }
+}
+
+/* Imported sections keep their source design inside a self-contained preview. */
+.preview-page:has(.imported-preview) {
+  display: block;
+  padding: 0;
+  min-height: 100vh;
+}
+.imported-preview {
+  width: 100%;
+  min-width: 0;
+}
+.imported-preview-note {
+  padding: 10px 16px;
+  color: var(--vng-muted-foreground);
+  font-size: 11px;
+  background: var(--vng-background);
+  border-bottom: 1px solid var(--vng-border);
+}
+.imported-preview-link {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid var(--vng-border-strong);
+  background: var(--vng-popover);
+  color: var(--vng-foreground);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.imported-preview-link button {
+  padding: 4px 8px;
+}
+
+.imported-preview--contained {
+  background: #f5f5f5;
+}
+.imported-preview--contained > .mi-scope,
+.imported-preview--contained > .ra-scope {
+  padding: clamp(16px, 4vw, 48px);
+}
+.imported-preview--contained .mi-interest-form {
+  max-width: 760px;
+  margin-inline: auto;
+}
+.imported-preview--control > .ra-scope {
+  display: grid;
+  place-items: center;
+  min-height: 240px;
+  padding: 32px;
+}
+
+.preview-page--thumbnail:has(.imported-preview) {
+  display: grid;
+  align-items: center;
 }

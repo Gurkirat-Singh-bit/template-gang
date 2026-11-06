@@ -1,0 +1,11 @@
+{
+  "title": "RepoAssistant Trusted Companies",
+  "description": "Trusted Companies adapted from RepoAssistant.",
+  "kind": "component",
+  "tags": ["RepoAssistant", "Section"],
+  "source": {
+    "project": "RepoAssistant",
+    "file": "src/components/TrustedCompanies.tsx",
+    "sha256": "0c1e9977ad6d799cb0407cc59ab470a5285f27429d09415f9e87e91f968005a2"
+  }
+}

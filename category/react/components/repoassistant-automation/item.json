@@ -1,0 +1,11 @@
+{
+  "title": "RepoAssistant Automation",
+  "description": "Automation adapted from RepoAssistant.",
+  "kind": "component",
+  "tags": ["RepoAssistant", "Section"],
+  "source": {
+    "project": "RepoAssistant",
+    "file": "src/components/Automation.tsx",
+    "sha256": "386400926943f58765ce51f94467771a87c9a7976846f03e6685236b5f375d0a"
+  }
+}
