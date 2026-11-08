@@ -1,4 +1,4 @@
-# RepoAssistant Services Detail
+# Service feature cards
 
 Adapted from `src/components/ServicesDetail.tsx` in your RepoAssistant project. The original project is unchanged.
 

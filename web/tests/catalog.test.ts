@@ -69,3 +69,64 @@ test("only exposes discovered source files, rejecting hidden files, symlinks and
   ).toBeNull();
   expect(await getEntry("missing-category", ["nothing"])).toBeUndefined();
 });
+
+test("components are discoverable by purpose and hidden demos stay out of the catalog", async () => {
+  const { componentGroups, matchesSearch } =
+    await import("../src/lib/component-groups");
+  const catalog = await getCatalog();
+  const navbars = catalog.entries.filter((entry) =>
+    matchesSearch(entry, "navbar"),
+  );
+  expect(navbars).toHaveLength(2);
+  expect(navbars.every((entry) => entry.componentGroup === "Navbars")).toBe(
+    true,
+  );
+  expect(
+    catalog.entries.filter((entry) =>
+      matchesSearch(entry, "repoassistant navbar"),
+    ),
+  ).toHaveLength(1);
+  expect(
+    catalog.entries.filter((entry) => matchesSearch(entry, "calculator")),
+  ).toHaveLength(2);
+  expect(
+    catalog.entries
+      .filter((entry) => entry.kind === "component")
+      .every((entry) => entry.tags.length <= 2),
+  ).toBe(true);
+  expect(componentGroups(catalog.entries)[0]).toBe("Navbars");
+  expect(
+    catalog.entries.some((entry) => entry.id.includes("reference-image")),
+  ).toBe(false);
+  expect(
+    (await getEntry(category, ["components", "button"]))?.componentGroup,
+  ).toBe("Buttons");
+});
+
+test("future libraries infer common component types rather than source project names", async () => {
+  const { inferComponentGroup } = await import("../src/lib/component-groups");
+  for (const [name, expected] of Object.entries({
+    Navbar: "Navbars",
+    FAQAccordion: "FAQ",
+    URLInput: "Inputs",
+    HTTPStatusBadge: "Badges",
+    SiteHeader: "Navbars",
+    TableHeader: "Tables",
+    DialogHeader: "Dialogs",
+    CardHeader: "Cards",
+    LoginForm: "Forms",
+    AlertDialog: "Dialogs",
+    DataTable: "Tables",
+    DropdownMenu: "Dropdowns",
+    ProfileAvatar: "Avatars",
+    SkeletonLoader: "Loaders",
+    ProductCard: "Cards",
+    Accordion: "Accordions",
+    Tabs: "Tabs",
+    Sidebar: "Sidebars",
+    Breadcrumbs: "Breadcrumbs",
+    PlatformLinks: "Other components",
+  })) {
+    expect(inferComponentGroup(name)).toBe(expected);
+  }
+});

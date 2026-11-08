@@ -1,4 +1,4 @@
-# RepoAssistant Testimonials
+# Testimonial showcase
 
 Adapted from `src/components/Testimonials.tsx` in your RepoAssistant project. The original project is unchanged.
 

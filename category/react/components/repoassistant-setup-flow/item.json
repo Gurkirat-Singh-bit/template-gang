@@ -1,11 +1,26 @@
 {
-  "title": "RepoAssistant Setup Flow",
-  "description": "Setup Flow adapted from RepoAssistant.",
+  "title": "Scroll-driven process steps",
+  "description": "Process steps that update with the scroll position.",
   "kind": "component",
-  "tags": ["RepoAssistant", "Section"],
+  "tags": [
+    "Steps",
+    "RepoAssistant"
+  ],
   "source": {
     "project": "RepoAssistant",
     "file": "src/components/SetupFlow.tsx",
     "sha256": "261b650e98b024fb9a758ea71f74bab7d25908b3b31cc8b1036c9f217ad96be7"
-  }
+  },
+  "componentGroup": "Steps",
+  "keywords": [
+    "Steps",
+    "RepoAssistant",
+    "Features",
+    "setup",
+    "flow",
+    "steps",
+    "process",
+    "scroll",
+    "timeline"
+  ]
 }

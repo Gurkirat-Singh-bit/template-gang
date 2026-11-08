@@ -1,11 +1,25 @@
 {
-  "title": "RepoAssistant Testimonials Teaser",
-  "description": "Testimonials Teaser adapted from RepoAssistant.",
+  "title": "Testimonial cards",
+  "description": "Compact customer quote cards.",
   "kind": "component",
-  "tags": ["RepoAssistant", "Section"],
+  "tags": [
+    "Testimonials",
+    "RepoAssistant"
+  ],
   "source": {
     "project": "RepoAssistant",
     "file": "src/components/TestimonialsTeaser.tsx",
     "sha256": "512df50ac4afa18c4b76162c6f846c2a6a0a65228fbf18e1d3f4c5b8749aa152"
-  }
+  },
+  "componentGroup": "Testimonials",
+  "keywords": [
+    "RepoAssistant",
+    "Testimonials",
+    "testimonials",
+    "teaser",
+    "reviews",
+    "customer",
+    "quotes",
+    "cards"
+  ]
 }

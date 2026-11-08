@@ -1,4 +1,4 @@
-# RepoAssistant Footer
+# Multi-column footer
 
 Adapted from `src/components/Footer.tsx` in your RepoAssistant project. The original project is unchanged.
 

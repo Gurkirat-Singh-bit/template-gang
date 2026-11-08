@@ -1,4 +1,4 @@
-# RepoAssistant Testimonials Teaser
+# Testimonial cards
 
 Adapted from `src/components/TestimonialsTeaser.tsx` in your RepoAssistant project. The original project is unchanged.
 

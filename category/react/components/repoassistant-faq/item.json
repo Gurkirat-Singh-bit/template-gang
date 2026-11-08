@@ -1,11 +1,25 @@
 {
-  "title": "RepoAssistant FAQ",
-  "description": "FAQ adapted from RepoAssistant.",
+  "title": "Two-column FAQ",
+  "description": "FAQ accordion beside an introductory heading.",
   "kind": "component",
-  "tags": ["RepoAssistant", "Section"],
+  "tags": [
+    "FAQ",
+    "RepoAssistant"
+  ],
   "source": {
     "project": "RepoAssistant",
     "file": "src/components/FAQ.tsx",
     "sha256": "f99c95fd8408d82a9a6311c17ef3f244ab019154c6cd045445758f9c2283741d"
-  }
+  },
+  "componentGroup": "FAQ",
+  "keywords": [
+    "RepoAssistant",
+    "FAQ",
+    "faq",
+    "accordion",
+    "questions",
+    "answers",
+    "two",
+    "column"
+  ]
 }

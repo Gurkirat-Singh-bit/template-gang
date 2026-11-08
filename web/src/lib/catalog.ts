@@ -1,6 +1,7 @@
 import "server-only";
 import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
+import { inferComponentGroup } from "./component-groups";
 import type { Catalog, CatalogEntry, EntryKind } from "./types";
 
 export const categoryRoot = path.resolve(process.cwd(), "../category");
@@ -119,6 +120,11 @@ async function loadEntry(
   const tags = Array.isArray(metadata.tags)
     ? metadata.tags.filter((tag): tag is string => typeof tag === "string")
     : [];
+  const keywords = Array.isArray(metadata.keywords)
+    ? metadata.keywords.filter(
+        (keyword): keyword is string => typeof keyword === "string",
+      )
+    : [];
   const kind: EntryKind =
     metadata.kind === "component" ||
     metadata.kind === "resource" ||
@@ -145,6 +151,16 @@ async function loadEntry(
         : (description?.slice(0, 180) ??
           `Reusable ${humanize(category)} ${kind}. Open to explore the source and setup.`),
     kind,
+    componentGroup:
+      kind === "component"
+        ? typeof metadata.componentGroup === "string"
+          ? metadata.componentGroup
+          : inferComponentGroup(
+              `${metadata.title || ""} ${slug} ${tags.join(" ")}`,
+            )
+        : undefined,
+    hidden: metadata.hidden === true,
+    keywords,
     tags,
     files,
     readme,
@@ -208,13 +224,14 @@ export async function getCatalog(): Promise<Catalog> {
       } else entries.push(await loadEntry(category, child));
     }
   }
+  const visibleEntries = entries.filter((entry) => !entry.hidden);
   return {
     categories: categories.map((slug) => ({
       slug,
       title: humanize(slug),
-      count: entries.filter((entry) => entry.category === slug).length,
+      count: visibleEntries.filter((entry) => entry.category === slug).length,
     })),
-    entries,
+    entries: visibleEntries,
   };
 }
 

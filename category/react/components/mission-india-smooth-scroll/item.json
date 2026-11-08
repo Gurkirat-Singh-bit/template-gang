@@ -1,11 +1,24 @@
 {
-  "title": "Mission India Smooth Scroll",
-  "description": "Smooth Scroll adapted from Mission India.",
+  "title": "Smooth scrolling",
+  "description": "Smooth scrolling behavior with a reduced-motion fallback.",
   "kind": "component",
-  "tags": ["Mission India", "Section"],
+  "tags": [
+    "Motion",
+    "Mission India"
+  ],
   "source": {
     "project": "Mission India",
     "file": "components/smooth-scroll.tsx",
     "sha256": "a63146308a71c1048c4688b3551a8e16c7e3640931eb277d88a595da0367b29e"
-  }
+  },
+  "componentGroup": "Motion",
+  "keywords": [
+    "Mission India",
+    "Motion",
+    "animation",
+    "motion",
+    "lenis",
+    "smooth",
+    "scroll"
+  ]
 }

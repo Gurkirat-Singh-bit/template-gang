@@ -1,4 +1,4 @@
-# RepoAssistant Stats
+# Stats row
 
 Adapted from `src/components/Stats.tsx` in your RepoAssistant project. The original project is unchanged.
 

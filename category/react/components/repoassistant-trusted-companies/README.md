@@ -1,4 +1,4 @@
-# RepoAssistant Trusted Companies
+# Scrolling logo cloud
 
 Adapted from `src/components/TrustedCompanies.tsx` in your RepoAssistant project. The original project is unchanged.
 

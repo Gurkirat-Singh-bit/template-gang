@@ -1,4 +1,4 @@
-# Mission India Site Header
+# Minimal navbar
 
 Adapted from `components/site-header.tsx` in your Mission India project. The original project is unchanged.
 

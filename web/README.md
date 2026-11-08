@@ -101,6 +101,14 @@ The interface uses carbon black and self-hosted JetBrains Mono. Shared tokens an
 
 ## Imported components
 
-The React category includes 10 Mission India components and 22 RepoAssistant components, each with its own preview, implementation, scoped styles, local assets, and usage notes. Open an item to preview it or copy its source. Copy the entire item folder when reusing it; `component.tsx` contains the implementation and `index.tsx` supplies its theme wrapper.
+The React category includes 9 Mission India components and 22 RepoAssistant components, each with its own preview, implementation, scoped styles, local assets, and usage notes. Open an item to preview it or copy its source. Copy the entire item folder when reusing it; `component.tsx` contains the implementation and `index.tsx` supplies its theme wrapper.
 
 The original source projects are untouched. Interest, booking, checkout, and URL-check integrations use clearly labeled local demos. Connect the documented `onSubmit`, `onBook`, or `testUrl` callbacks to your own services. Calculators keep their original calculations. Catalog thumbnails scale larger sections; the item viewer renders the real responsive component.
+
+## Find components by purpose
+
+Components are grouped as Navbars, Buttons, Forms, Footers, Heroes, Pricing, FAQ, and other functional types. Use the Component type filter or the category sidebar groups. Search accepts combinations such as `pricing cards`, `signup form`, `vps calculator`, or `repoassistant navbar`; project names remain searchable provenance rather than titles.
+
+Set `componentGroup` in an item's `item.json` to choose its group. Without it, common names such as navbar, footer, button, and form are detected automatically. `hidden: true` keeps source files in the repository while excluding an entry and its preview from the catalog. The decorative reference-image demo is hidden.
+
+Add search aliases in `keywords` rather than visible `tags`; the detail page shows only concise tags and keeps aliases out of the UI.

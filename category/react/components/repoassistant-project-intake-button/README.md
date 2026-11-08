@@ -1,4 +1,4 @@
-# RepoAssistant Project Intake Button
+# Project intake dialog
 
 Adapted from `src/components/ProjectIntakeButton.tsx` in your RepoAssistant project. The original project is unchanged.
 

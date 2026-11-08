@@ -1,4 +1,4 @@
-# RepoAssistant Integrations
+# Integration cards
 
 Adapted from `src/components/Integrations.tsx` in your RepoAssistant project. The original project is unchanged.
 

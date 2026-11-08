@@ -1,4 +1,4 @@
-# Mission India Site Footer
+# Large wordmark footer
 
 Adapted from `components/site-footer.tsx` in your Mission India project. The original project is unchanged.
 

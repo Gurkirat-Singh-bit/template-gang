@@ -1,11 +1,25 @@
 {
-  "title": "RepoAssistant Vps Capacity Estimator",
-  "description": "Vps Capacity Estimator adapted from RepoAssistant.",
+  "title": "Server capacity estimator",
+  "description": "Estimate server capacity from workload and memory inputs.",
   "kind": "component",
-  "tags": ["RepoAssistant", "Tool"],
+  "tags": [
+    "Tools",
+    "RepoAssistant"
+  ],
   "source": {
     "project": "RepoAssistant",
     "file": "src/components/tools/vps-capacity-estimator.tsx",
     "sha256": "4621356dee9f38daca7d3a302eb93d507a77246a3dd35714b15be01becd76f18"
-  }
+  },
+  "componentGroup": "Tools",
+  "keywords": [
+    "RepoAssistant",
+    "Tools",
+    "vps",
+    "server",
+    "capacity",
+    "estimator",
+    "calculator",
+    "tool"
+  ]
 }

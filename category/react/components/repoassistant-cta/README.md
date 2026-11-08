@@ -1,4 +1,4 @@
-# RepoAssistant CTA
+# Call to action banner
 
 Adapted from `src/components/CTA.tsx` in your RepoAssistant project. The original project is unchanged.
 

@@ -1,4 +1,4 @@
-# RepoAssistant Partners
+# Partner logos
 
 Adapted from `src/components/Partners.tsx` in your RepoAssistant project. The original project is unchanged.
 

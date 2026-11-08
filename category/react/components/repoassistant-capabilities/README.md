@@ -1,4 +1,4 @@
-# RepoAssistant Capabilities
+# Pricing cards with intake
 
 Adapted from `src/components/Capabilities.tsx` in your RepoAssistant project. The original project is unchanged.
 

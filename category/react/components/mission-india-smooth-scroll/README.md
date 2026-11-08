@@ -1,4 +1,4 @@
-# Mission India Smooth Scroll
+# Smooth scrolling
 
 Adapted from `components/smooth-scroll.tsx` in your Mission India project. The original project is unchanged.
 

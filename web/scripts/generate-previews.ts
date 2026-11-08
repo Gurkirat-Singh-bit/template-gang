@@ -10,6 +10,9 @@ const previews: string[] = [];
 
 async function scan(directory: string, depth = 0) {
   if (depth > 4) return;
+  const metadata = Bun.file(path.join(directory, "item.json"));
+  if ((await metadata.exists()) && (await metadata.json()).hidden === true)
+    return;
   for (const file of await readdir(directory, { withFileTypes: true })) {
     if (
       file.name.startsWith(".") ||

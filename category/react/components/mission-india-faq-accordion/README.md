@@ -1,4 +1,4 @@
-# Mission India Faq Accordion
+# FAQ accordion
 
 Adapted from `components/faq-accordion.tsx` in your Mission India project. The original project is unchanged.
 

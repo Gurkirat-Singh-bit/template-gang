@@ -1,4 +1,4 @@
-# RepoAssistant Pricing Preview
+# Compact pricing links
 
 Adapted from `src/components/PricingPreview.tsx` in your RepoAssistant project. The original project is unchanged.
 

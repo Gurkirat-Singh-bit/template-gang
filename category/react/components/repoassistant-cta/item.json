@@ -1,11 +1,25 @@
 {
-  "title": "RepoAssistant CTA",
-  "description": "CTA adapted from RepoAssistant.",
+  "title": "Call to action banner",
+  "description": "Call to action section with primary and secondary links.",
   "kind": "component",
-  "tags": ["RepoAssistant", "Section"],
+  "tags": [
+    "Call to action",
+    "RepoAssistant"
+  ],
   "source": {
     "project": "RepoAssistant",
     "file": "src/components/CTA.tsx",
     "sha256": "680bd4c08c6cac5ee27430974bbbdba46b41be2e7329f51f13fe0d800c5f3e98"
-  }
+  },
+  "componentGroup": "Call to action",
+  "keywords": [
+    "RepoAssistant",
+    "Call to action",
+    "cta",
+    "call",
+    "to",
+    "action",
+    "banner",
+    "conversion"
+  ]
 }

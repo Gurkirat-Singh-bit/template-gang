@@ -1,11 +1,23 @@
 {
-  "title": "RepoAssistant Hero",
-  "description": "Hero adapted from RepoAssistant.",
+  "title": "Hero with mascot",
+  "description": "Landing page hero with headline, two actions, and a mascot illustration.",
   "kind": "component",
-  "tags": ["RepoAssistant", "Section"],
+  "tags": [
+    "Heroes",
+    "RepoAssistant"
+  ],
   "source": {
     "project": "RepoAssistant",
     "file": "src/components/Hero.tsx",
     "sha256": "7a55934445b29682d46351a7b9867222d9350eb612144d26fd6858cca4f4b7f4"
-  }
+  },
+  "componentGroup": "Heroes",
+  "keywords": [
+    "RepoAssistant",
+    "Heroes",
+    "hero",
+    "landing",
+    "banner",
+    "mascot"
+  ]
 }

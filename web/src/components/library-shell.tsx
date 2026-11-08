@@ -9,6 +9,7 @@ import {
   ArchiveBoxIcon,
   XIcon,
 } from "@phosphor-icons/react";
+import { componentGroups } from "@/lib/component-groups";
 import type { Catalog } from "@/lib/types";
 import { CategoryIcon } from "./icons";
 import { Button } from "./ui/button";
@@ -28,12 +29,16 @@ export function LibraryShell({
   category = "all",
   currentEntry,
   onCategorySelect,
+  componentGroup = "all",
+  onComponentGroupSelect,
   children,
 }: {
   catalog: Catalog;
   category?: string;
   currentEntry?: string;
   onCategorySelect?: (category: string) => void;
+  componentGroup?: string;
+  onComponentGroupSelect?: (group: string, category: string) => void;
   children: ReactNode;
 }) {
   const [guide, setGuide] = useState(false);
@@ -113,19 +118,92 @@ export function LibraryShell({
               )}
               {!!items.length && category === item.slug && (
                 <div className="sidebar-children">
-                  {items.map((entry) => (
-                    <Link
-                      key={entry.id}
-                      href={`/item/${entry.id}`}
-                      prefetch={false}
-                      aria-current={
-                        currentEntry === entry.id ? "page" : undefined
-                      }
-                      onClick={() => setMenu(false)}
-                    >
-                      {entry.title}
-                    </Link>
-                  ))}
+                  {items.some((entry) => entry.kind === "component") ? (
+                    <>
+                      {componentGroups(items).map((name) => {
+                        const members = items.filter(
+                          (entry) =>
+                            entry.kind === "component" &&
+                            (entry.componentGroup || "Other components") ===
+                              name,
+                        );
+                        const active =
+                          componentGroup === name ||
+                          members.some((entry) => entry.id === currentEntry);
+                        return (
+                          <div key={name} className="sidebar-component-group">
+                            {onComponentGroupSelect ? (
+                              <button
+                                type="button"
+                                aria-pressed={active}
+                                onClick={() => {
+                                  onComponentGroupSelect(name, item.slug);
+                                  setMenu(false);
+                                }}
+                              >
+                                {name}
+                                <span>{members.length}</span>
+                              </button>
+                            ) : (
+                              <Link
+                                prefetch={false}
+                                href={`/?category=${encodeURIComponent(item.slug)}&group=${encodeURIComponent(name)}`}
+                              >
+                                {name}
+                                <span>{members.length}</span>
+                              </Link>
+                            )}
+                            {active &&
+                              members.map((entry) => (
+                                <Link
+                                  key={entry.id}
+                                  href={`/item/${entry.id}`}
+                                  prefetch={false}
+                                  aria-current={
+                                    currentEntry === entry.id
+                                      ? "page"
+                                      : undefined
+                                  }
+                                  onClick={() => setMenu(false)}
+                                  className="sidebar-component-link"
+                                >
+                                  {entry.title}
+                                </Link>
+                              ))}
+                          </div>
+                        );
+                      })}
+                      {items
+                        .filter((entry) => entry.kind !== "component")
+                        .map((entry) => (
+                          <Link
+                            key={entry.id}
+                            href={`/item/${entry.id}`}
+                            prefetch={false}
+                            onClick={() => setMenu(false)}
+                          >
+                            {entry.title}
+                          </Link>
+                        ))}
+                    </>
+                  ) : (
+                    <>
+                      {" "}
+                      {items.map((entry) => (
+                        <Link
+                          key={entry.id}
+                          href={`/item/${entry.id}`}
+                          prefetch={false}
+                          aria-current={
+                            currentEntry === entry.id ? "page" : undefined
+                          }
+                          onClick={() => setMenu(false)}
+                        >
+                          {entry.title}
+                        </Link>
+                      ))}
+                    </>
+                  )}
                 </div>
               )}
             </div>

@@ -1,11 +1,27 @@
 {
-  "title": "Mission India Interest Form",
-  "description": "Interest Form adapted from Mission India.",
+  "title": "Interest signup form",
+  "description": "Signup form with role selection, email validation, and a word counter.",
   "kind": "component",
-  "tags": ["Mission India", "Form"],
+  "tags": [
+    "Forms",
+    "Mission India"
+  ],
   "source": {
     "project": "Mission India",
     "file": "components/interest-form.tsx",
     "sha256": "a26fd841f3530ca450259e09daaad38bfaccbccf537529f1ac420910f24746ff"
-  }
+  },
+  "componentGroup": "Forms",
+  "keywords": [
+    "Mission India",
+    "Forms",
+    "form",
+    "signup",
+    "sign",
+    "up",
+    "interest",
+    "email",
+    "registration",
+    "validation"
+  ]
 }

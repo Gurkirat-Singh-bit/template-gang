@@ -1,4 +1,4 @@
-# RepoAssistant Hero
+# Hero with mascot
 
 Adapted from `src/components/Hero.tsx` in your RepoAssistant project. The original project is unchanged.
 

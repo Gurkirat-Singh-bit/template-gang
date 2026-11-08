@@ -1,6 +1,16 @@
 {
   "title": "Project card",
-  "description": "Project card with a save toggle.",
+  "description": "Project summary card with a technology stack.",
   "kind": "component",
-  "tags": ["Tailwind v4", "Card"]
+  "tags": [
+    "Cards"
+  ],
+  "componentGroup": "Cards",
+  "keywords": [
+    "Cards",
+    "card",
+    "project",
+    "stack",
+    "technologies"
+  ]
 }

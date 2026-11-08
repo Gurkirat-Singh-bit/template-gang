@@ -1,4 +1,4 @@
-# RepoAssistant Header
+# Navbar with mobile menu
 
 Adapted from `src/components/Header.tsx` in your RepoAssistant project. The original project is unchanged.
 

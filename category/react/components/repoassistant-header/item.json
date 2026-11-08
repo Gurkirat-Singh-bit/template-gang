@@ -1,11 +1,25 @@
 {
-  "title": "RepoAssistant Header",
-  "description": "Header adapted from RepoAssistant.",
+  "title": "Navbar with mobile menu",
+  "description": "Navbar with a collapsible mobile menu and booking action.",
   "kind": "component",
-  "tags": ["RepoAssistant", "Section"],
+  "tags": [
+    "Navbars",
+    "RepoAssistant"
+  ],
   "source": {
     "project": "RepoAssistant",
     "file": "src/components/Header.tsx",
     "sha256": "880dcdc452afce0bbe1c8a522da71fd0c053c1083d4a52993dabfe176f7735fb"
-  }
+  },
+  "componentGroup": "Navbars",
+  "keywords": [
+    "RepoAssistant",
+    "Navbars",
+    "navbar",
+    "navigation",
+    "header",
+    "hamburger",
+    "menu",
+    "responsive"
+  ]
 }

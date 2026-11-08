@@ -1,11 +1,24 @@
 {
-  "title": "Mission India Site Footer",
-  "description": "Site Footer adapted from Mission India.",
+  "title": "Large wordmark footer",
+  "description": "Footer with social links and a large brand wordmark.",
   "kind": "component",
-  "tags": ["Mission India", "Section"],
+  "tags": [
+    "Footers",
+    "Mission India"
+  ],
   "source": {
     "project": "Mission India",
     "file": "components/site-footer.tsx",
     "sha256": "b8f83ed3eedd4b2fee850f247f2bcdb66af9417f4c105eae4e655711e1d3dcee"
-  }
+  },
+  "componentGroup": "Footers",
+  "keywords": [
+    "Mission India",
+    "Footers",
+    "footer",
+    "navigation",
+    "social",
+    "links",
+    "brand"
+  ]
 }

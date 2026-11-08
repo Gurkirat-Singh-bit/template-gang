@@ -1,4 +1,4 @@
-# RepoAssistant FAQ
+# Two-column FAQ
 
 Adapted from `src/components/FAQ.tsx` in your RepoAssistant project. The original project is unchanged.
 

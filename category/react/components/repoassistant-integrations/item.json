@@ -1,11 +1,23 @@
 {
-  "title": "RepoAssistant Integrations",
-  "description": "Integrations adapted from RepoAssistant.",
+  "title": "Integration cards",
+  "description": "Integration options with supporting descriptions and actions.",
   "kind": "component",
-  "tags": ["RepoAssistant", "Section"],
+  "tags": [
+    "Integrations",
+    "RepoAssistant"
+  ],
   "source": {
     "project": "RepoAssistant",
     "file": "src/components/Integrations.tsx",
     "sha256": "cd166b12a3a1c343f9d61400d791606f0c98c65781f6d75baa237ea0969eb383"
-  }
+  },
+  "componentGroup": "Integrations",
+  "keywords": [
+    "RepoAssistant",
+    "Integrations",
+    "integrations",
+    "services",
+    "platforms",
+    "cards"
+  ]
 }

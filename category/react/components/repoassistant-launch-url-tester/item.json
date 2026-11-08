@@ -1,11 +1,26 @@
 {
-  "title": "RepoAssistant Launch Url Tester",
-  "description": "Launch Url Tester adapted from RepoAssistant.",
+  "title": "URL checker form",
+  "description": "URL input with a results panel and a replaceable test handler.",
   "kind": "component",
-  "tags": ["RepoAssistant", "Form"],
+  "tags": [
+    "Tools",
+    "RepoAssistant"
+  ],
   "source": {
     "project": "RepoAssistant",
     "file": "src/components/tools/launch-url-tester.tsx",
     "sha256": "940c4361a899145efdc02f70676fc5f10588844699e24c39bb5b94fbca58a3a5"
-  }
+  },
+  "componentGroup": "Tools",
+  "keywords": [
+    "RepoAssistant",
+    "Tools",
+    "launch",
+    "url",
+    "tester",
+    "checker",
+    "website",
+    "form",
+    "tool"
+  ]
 }

@@ -8,6 +8,9 @@ export interface CatalogEntry {
   description: string;
   kind: EntryKind;
   tags: string[];
+  componentGroup?: string;
+  keywords?: string[];
+  hidden?: boolean;
   files: string[];
   readme: string;
   preview: boolean;

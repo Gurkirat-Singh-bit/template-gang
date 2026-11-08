@@ -1,4 +1,4 @@
-# RepoAssistant Automation
+# Benefits with stats
 
 Adapted from `src/components/Automation.tsx` in your RepoAssistant project. The original project is unchanged.
 

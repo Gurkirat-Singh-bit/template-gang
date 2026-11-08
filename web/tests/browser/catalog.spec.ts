@@ -1,8 +1,14 @@
 import { expect, test, type Page } from "@playwright/test";
-import { readdirSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 const componentCount = readdirSync("../category/react/components", {
   withFileTypes: true,
-}).filter((entry) => entry.isDirectory()).length;
+}).filter((entry) => {
+  if (!entry.isDirectory()) return false;
+  const metadata = `../category/react/components/${entry.name}/item.json`;
+  return (
+    !existsSync(metadata) || !JSON.parse(readFileSync(metadata, "utf8")).hidden
+  );
+}).length;
 const resourceCount = componentCount + 1;
 
 async function expectNoOverflow(page: Page) {
@@ -46,6 +52,7 @@ test("carbon catalog, category discovery, filters, search and layout switching",
   await expect(page.getByText("No resources yet")).toBeVisible();
   await page.getByRole("button", { name: /^All resources/ }).click();
   const search = page.getByRole("textbox", { name: "Find a resource" });
+  await expect(search).toBeEnabled();
   await page.keyboard.press("Control+k");
   await expect(search).toBeFocused();
   await search.fill("action button");

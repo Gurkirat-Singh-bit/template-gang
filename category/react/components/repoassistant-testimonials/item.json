@@ -1,11 +1,25 @@
 {
-  "title": "RepoAssistant Testimonials",
-  "description": "Testimonials adapted from RepoAssistant.",
+  "title": "Testimonial showcase",
+  "description": "Featured customer project alongside customer testimonials.",
   "kind": "component",
-  "tags": ["RepoAssistant", "Section"],
+  "tags": [
+    "Testimonials",
+    "RepoAssistant"
+  ],
   "source": {
     "project": "RepoAssistant",
     "file": "src/components/Testimonials.tsx",
     "sha256": "4b520f5bfc11434deb1c95dd737e57a651765fba4c4aa939623f9a75ee4a2b5c"
-  }
+  },
+  "componentGroup": "Testimonials",
+  "keywords": [
+    "RepoAssistant",
+    "Testimonials",
+    "testimonials",
+    "reviews",
+    "customer",
+    "quotes",
+    "social",
+    "proof"
+  ]
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import {
   ArrowRightIcon,
   ArrowUpRightIcon,
@@ -14,6 +14,7 @@ import {
   SquaresFourIcon,
   XIcon,
 } from "@phosphor-icons/react";
+import { componentGroups, matchesSearch } from "@/lib/component-groups";
 import type { Catalog, CatalogEntry, EntryKind } from "@/lib/types";
 import { LibraryShell } from "./library-shell";
 import { CategoryIcon } from "./icons";
@@ -21,6 +22,8 @@ import { Button } from "./ui/button";
 import { Input, Select } from "./ui/input";
 import { Tabs } from "./ui/tabs";
 import { PreviewSkeleton } from "./ui/skeleton";
+
+const subscribeToHydration = () => () => {};
 
 function ResourceItem({
   entry,
@@ -196,20 +199,34 @@ const kindLabels: Record<EntryKind, string> = {
 export function CatalogBrowser({
   catalog,
   initialCategory = "all",
+  initialGroup = "all",
 }: {
   catalog: Catalog;
   initialCategory?: string;
+  initialGroup?: string;
 }) {
   const [category, setCategory] = useState(
     catalog.categories.some((item) => item.slug === initialCategory)
       ? initialCategory
       : "all",
   );
-  const [kind, setKind] = useState("all");
+  const [kind, setKind] = useState(
+    initialGroup !== "all" ? "component" : "all",
+  );
+  const [group, setGroup] = useState(
+    componentGroups(catalog.entries).includes(initialGroup)
+      ? initialGroup
+      : "all",
+  );
   const [search, setSearch] = useState("");
   const [view, setView] = useState("grid");
   const [sort, setSort] = useState("name");
   const searchRef = useRef<HTMLInputElement>(null);
+  const ready = useSyncExternalStore(
+    subscribeToHydration,
+    () => true,
+    () => false,
+  );
   useEffect(() => {
     const handler = (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key === "k") {
@@ -225,15 +242,38 @@ export function CatalogBrowser({
       (entry) =>
         (category === "all" || entry.category === category) &&
         (kind === "all" || entry.kind === kind) &&
-        `${entry.title} ${entry.description} ${entry.category} ${entry.tags.join(" ")}`
-          .toLowerCase()
-          .includes(search.trim().toLowerCase()),
+        (group === "all" || entry.componentGroup === group) &&
+        matchesSearch(entry, search),
     )
     .sort((a, b) =>
       sort === "recent"
         ? b.updatedAt.localeCompare(a.updatedAt)
         : a.title.localeCompare(b.title),
     );
+  const availableComponents = catalog.entries.filter(
+    (entry) =>
+      entry.kind === "component" &&
+      (category === "all" || entry.category === category),
+  );
+  const availableGroups = componentGroups(availableComponents);
+  const sections = [
+    ...componentGroups(entries).map((name) => ({
+      key: `component-${name.replace(/\W/g, "-")}`,
+      title: name,
+      kind: "component" as EntryKind,
+      items: entries.filter(
+        (entry) =>
+          entry.kind === "component" &&
+          (entry.componentGroup || "Other components") === name,
+      ),
+    })),
+    ...(["template", "resource"] as EntryKind[]).map((kind) => ({
+      key: kind,
+      title: kindLabels[kind],
+      kind,
+      items: entries.filter((entry) => entry.kind === kind),
+    })),
+  ].filter((section) => section.items.length);
   const categoryTitle = catalog.categories.find(
     (item) => item.slug === category,
   )?.title;
@@ -241,7 +281,17 @@ export function CatalogBrowser({
     <LibraryShell
       catalog={catalog}
       category={category}
-      onCategorySelect={setCategory}
+      onCategorySelect={(next) => {
+        setCategory(next);
+        setGroup("all");
+      }}
+      componentGroup={group}
+      onComponentGroupSelect={(next, nextCategory) => {
+        setCategory(nextCategory);
+        setGroup(next);
+        setKind("component");
+        setSearch("");
+      }}
     >
       <section className="catalog-intro" aria-labelledby="catalog-heading">
         <h1 id="catalog-heading">
@@ -262,10 +312,13 @@ export function CatalogBrowser({
               <MagnifyingGlassIcon size={17} />
               <Input
                 ref={searchRef}
+                disabled={!ready}
                 id="resource-search"
                 value={search}
                 onChange={(event) => setSearch(event.target.value)}
-                placeholder="Search library…"
+                placeholder={
+                  ready ? "Search buttons, cards, forms…" : "Loading library…"
+                }
                 aria-describedby="search-help"
               />
               {search ? (
@@ -338,7 +391,10 @@ export function CatalogBrowser({
             label="Resource types"
             variant="underline"
             value={kind}
-            onChange={setKind}
+            onChange={(next) => {
+              setKind(next);
+              setGroup("all");
+            }}
             options={[
               { value: "all", label: "Everything" },
               { value: "component", label: "Components" },
@@ -350,74 +406,92 @@ export function CatalogBrowser({
             {entries.length} {entries.length === 1 ? "resource" : "resources"}
           </span>
         </div>
+        {availableGroups.length > 0 &&
+          kind !== "template" &&
+          kind !== "resource" && (
+            <div className="component-group-filter">
+              <label htmlFor="component-group">Component type</label>
+              <Select
+                id="component-group"
+                label="Component type"
+                value={group}
+                onValueChange={(next) => {
+                  setGroup(next);
+                  if (next !== "all") setKind("component");
+                }}
+                options={[
+                  { value: "all", label: "All components" },
+                  ...availableGroups.map((name) => ({
+                    value: name,
+                    label: `${name} (${availableComponents.filter((entry) => entry.componentGroup === name || (!entry.componentGroup && name === "Other components")).length})`,
+                  })),
+                ]}
+              />
+            </div>
+          )}
         {entries.length ? (
           <div className={view === "list" ? "entry-list" : "entry-sections"}>
-            {(["component", "template", "resource"] as EntryKind[]).map(
-              (entryKind) => {
-                const items = entries.filter(
-                  (entry) => entry.kind === entryKind,
-                );
-                if (!items.length) return null;
-                return (
-                  <section
-                    className="resource-section"
-                    aria-labelledby={`${entryKind}-heading`}
-                    key={entryKind}
+            {sections.map(({ key, title, kind: entryKind, items }) => {
+              return (
+                <section
+                  className="resource-section"
+                  aria-labelledby={`${key}-heading`}
+                  key={key}
+                >
+                  <div className="section-heading">
+                    <div>
+                      <h2 id={`${key}-heading`}>
+                        {title}
+                        <span>{items.length.toString().padStart(2, "0")}</span>
+                      </h2>
+                    </div>
+                  </div>
+                  <div
+                    className={
+                      entryKind === "component" && view === "grid"
+                        ? "component-gallery"
+                        : "resource-rows"
+                    }
                   >
-                    <div className="section-heading">
-                      <div>
-                        <h2 id={`${entryKind}-heading`}>
-                          {kindLabels[entryKind]}
-                          <span>
-                            {items.length.toString().padStart(2, "0")}
-                          </span>
-                        </h2>
-                      </div>
-                    </div>
-                    <div
-                      className={
-                        entryKind === "component" && view === "grid"
-                          ? "component-gallery"
-                          : "resource-rows"
-                      }
-                    >
-                      {items.map((entry, index) => (
-                        <ResourceItem
-                          key={entry.id}
-                          entry={entry}
-                          list={view === "list"}
-                          index={index}
-                        />
-                      ))}
-                    </div>
-                  </section>
-                );
-              },
-            )}
+                    {items.map((entry, index) => (
+                      <ResourceItem
+                        key={entry.id}
+                        entry={entry}
+                        list={view === "list"}
+                        index={index}
+                      />
+                    ))}
+                  </div>
+                </section>
+              );
+            })}
           </div>
         ) : (
           <div className="empty-state">
             <span className="empty-icon">
-              {search || kind !== "all" ? (
+              {search || kind !== "all" || group !== "all" ? (
                 <MagnifyingGlassIcon size={23} />
               ) : (
                 <FolderSimpleIcon size={23} />
               )}
             </span>
             <h2>
-              {search || kind !== "all" ? "No matches" : "No resources yet"}
+              {search || kind !== "all" || group !== "all"
+                ? "No matches"
+                : "No resources yet"}
             </h2>
             <p>
-              {search || kind !== "all"
+              {search || kind !== "all" || group !== "all"
                 ? "Try another search or clear the filters."
                 : `Add a folder to category/${category === "all" ? "your-category" : category}.`}
             </p>
-            {(search || kind !== "all") && (
+            {(search || kind !== "all" || group !== "all") && (
               <Button
                 variant="outline"
                 onClick={() => {
                   setSearch("");
                   setKind("all");
+                  setGroup("all");
                 }}
               >
                 Clear filters

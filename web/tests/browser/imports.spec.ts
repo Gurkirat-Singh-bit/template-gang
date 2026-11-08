@@ -1,8 +1,18 @@
 import { expect, test } from "@playwright/test";
-import { readdirSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 
 const entries = readdirSync("../category/react/components")
-  .filter((name) => /^(mission-india|repoassistant)-/.test(name))
+  .filter(
+    (name) =>
+      /^(mission-india|repoassistant)-/.test(name) &&
+      (!existsSync(`../category/react/components/${name}/item.json`) ||
+        !JSON.parse(
+          readFileSync(
+            `../category/react/components/${name}/item.json`,
+            "utf8",
+          ),
+        ).hidden),
+  )
   .sort();
 
 for (const entry of entries) {

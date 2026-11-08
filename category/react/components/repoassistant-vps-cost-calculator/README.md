@@ -1,4 +1,4 @@
-# RepoAssistant Vps Cost Calculator
+# Hosting cost calculator
 
 Adapted from `src/components/tools/vps-cost-calculator.tsx` in your RepoAssistant project. The original project is unchanged.
 

@@ -1,11 +1,26 @@
 {
-  "title": "Mission India Use Cases",
-  "description": "Use Cases adapted from Mission India.",
+  "title": "Feature carousel",
+  "description": "Animated feature slider with previous, next, and slide controls.",
   "kind": "component",
-  "tags": ["Mission India", "Section"],
+  "tags": [
+    "Carousels",
+    "Mission India"
+  ],
   "source": {
     "project": "Mission India",
     "file": "components/use-cases.tsx",
     "sha256": "c013d44cd42ddedde163fc68e12c79618bc69a82999b37d8411136a98a85a3e0"
-  }
+  },
+  "componentGroup": "Carousels",
+  "keywords": [
+    "Carousels",
+    "Mission India",
+    "Features",
+    "carousel",
+    "slider",
+    "features",
+    "use",
+    "cases",
+    "swipe"
+  ]
 }

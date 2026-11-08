@@ -1,11 +1,25 @@
 {
-  "title": "RepoAssistant Deploy From",
-  "description": "Deploy From adapted from RepoAssistant.",
+  "title": "Deployment platform links",
+  "description": "Linked platform options for choosing a deployment source.",
   "kind": "component",
-  "tags": ["RepoAssistant", "Section"],
+  "tags": [
+    "Integrations",
+    "RepoAssistant"
+  ],
   "source": {
     "project": "RepoAssistant",
     "file": "src/components/DeployFrom.tsx",
     "sha256": "1784056546657b44043c46ba527b7f16b5879fb64878f8ee240514b3b48e826b"
-  }
+  },
+  "componentGroup": "Integrations",
+  "keywords": [
+    "RepoAssistant",
+    "Integrations",
+    "deploy",
+    "from",
+    "platform",
+    "integrations",
+    "links",
+    "builders"
+  ]
 }

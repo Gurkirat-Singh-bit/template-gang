@@ -1,4 +1,4 @@
-# Mission India Why Explore
+# Scroll reveal text
 
 Adapted from `components/why-explore.tsx` in your Mission India project. The original project is unchanged.
 

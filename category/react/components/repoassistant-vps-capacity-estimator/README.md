@@ -1,4 +1,4 @@
-# RepoAssistant Vps Capacity Estimator
+# Server capacity estimator
 
 Adapted from `src/components/tools/vps-capacity-estimator.tsx` in your RepoAssistant project. The original project is unchanged.
 

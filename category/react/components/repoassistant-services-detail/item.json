@@ -1,11 +1,24 @@
 {
-  "title": "RepoAssistant Services Detail",
-  "description": "Services Detail adapted from RepoAssistant.",
+  "title": "Service feature cards",
+  "description": "Service introduction with three feature cards.",
   "kind": "component",
-  "tags": ["RepoAssistant", "Section"],
+  "tags": [
+    "Features",
+    "RepoAssistant"
+  ],
   "source": {
     "project": "RepoAssistant",
     "file": "src/components/ServicesDetail.tsx",
     "sha256": "a4051d5dbc8a7ec0cf27b7b23136d114bf14acab2d3dcf513a998be94a8347d4"
-  }
+  },
+  "componentGroup": "Features",
+  "keywords": [
+    "RepoAssistant",
+    "Features",
+    "services",
+    "detail",
+    "feature",
+    "cards",
+    "benefits"
+  ]
 }

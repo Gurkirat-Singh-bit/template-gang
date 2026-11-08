@@ -1,11 +1,23 @@
 {
-  "title": "RepoAssistant Partners",
-  "description": "Partners adapted from RepoAssistant.",
+  "title": "Partner logos",
+  "description": "Responsive collection of partner logos.",
   "kind": "component",
-  "tags": ["RepoAssistant", "Section"],
+  "tags": [
+    "Logos",
+    "RepoAssistant"
+  ],
   "source": {
     "project": "RepoAssistant",
     "file": "src/components/Partners.tsx",
     "sha256": "eb5c47945809dcbfdb2894d851af45a669fae68c397b35ee3c9a37885fea9a32"
-  }
+  },
+  "componentGroup": "Logos",
+  "keywords": [
+    "RepoAssistant",
+    "Logos",
+    "partners",
+    "logos",
+    "brands",
+    "cloud"
+  ]
 }

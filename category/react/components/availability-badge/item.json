@@ -1,6 +1,16 @@
 {
   "title": "Availability badge",
-  "description": "Availability status toggle.",
+  "description": "Compact availability status indicator.",
   "kind": "component",
-  "tags": ["Tailwind v4", "Status"]
+  "tags": [
+    "Badges"
+  ],
+  "componentGroup": "Badges",
+  "keywords": [
+    "Badges",
+    "badge",
+    "status",
+    "availability",
+    "indicator"
+  ]
 }

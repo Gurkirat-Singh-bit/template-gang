@@ -1,4 +1,4 @@
-# Mission India Use Cases
+# Feature carousel
 
 Adapted from `components/use-cases.tsx` in your Mission India project. The original project is unchanged.
 

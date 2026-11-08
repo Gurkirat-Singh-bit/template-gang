@@ -1,4 +1,4 @@
-# Mission India Interest Form
+# Interest signup form
 
 Adapted from `components/interest-form.tsx` in your Mission India project. The original project is unchanged.
 

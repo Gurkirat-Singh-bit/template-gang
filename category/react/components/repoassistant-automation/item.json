@@ -1,11 +1,23 @@
 {
-  "title": "RepoAssistant Automation",
-  "description": "Automation adapted from RepoAssistant.",
+  "title": "Benefits with stats",
+  "description": "Benefit cards alongside an introduction and key stats.",
   "kind": "component",
-  "tags": ["RepoAssistant", "Section"],
+  "tags": [
+    "Features",
+    "RepoAssistant"
+  ],
   "source": {
     "project": "RepoAssistant",
     "file": "src/components/Automation.tsx",
     "sha256": "386400926943f58765ce51f94467771a87c9a7976846f03e6685236b5f375d0a"
-  }
+  },
+  "componentGroup": "Features",
+  "keywords": [
+    "RepoAssistant",
+    "Features",
+    "automation",
+    "features",
+    "benefits",
+    "stats"
+  ]
 }

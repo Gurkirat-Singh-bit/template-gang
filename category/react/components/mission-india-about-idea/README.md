@@ -1,4 +1,4 @@
-# Mission India About Idea
+# Illustrated process steps
 
 Adapted from `components/about-idea.tsx` in your Mission India project. The original project is unchanged.
 

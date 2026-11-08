@@ -1,11 +1,28 @@
 {
-  "title": "Mission India About Idea",
-  "description": "About Idea adapted from Mission India.",
+  "title": "Illustrated process steps",
+  "description": "Four illustrated steps for explaining a process.",
   "kind": "component",
-  "tags": ["Mission India", "Section"],
+  "tags": [
+    "Steps",
+    "Mission India"
+  ],
   "source": {
     "project": "Mission India",
     "file": "components/about-idea.tsx",
     "sha256": "9238cfd4dadf7d1dd755497150e7777cb7bc7408058a61084cb72b04a764f0a5"
-  }
+  },
+  "componentGroup": "Steps",
+  "keywords": [
+    "Steps",
+    "Mission India",
+    "Features",
+    "steps",
+    "process",
+    "timeline",
+    "how",
+    "it",
+    "works",
+    "about",
+    "idea"
+  ]
 }

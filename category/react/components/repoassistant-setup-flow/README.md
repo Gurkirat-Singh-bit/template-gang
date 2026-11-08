@@ -1,4 +1,4 @@
-# RepoAssistant Setup Flow
+# Scroll-driven process steps
 
 Adapted from `src/components/SetupFlow.tsx` in your RepoAssistant project. The original project is unchanged.
 

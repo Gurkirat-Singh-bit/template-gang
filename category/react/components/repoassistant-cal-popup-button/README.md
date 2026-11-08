@@ -1,4 +1,4 @@
-# RepoAssistant Cal Popup Button
+# Booking dialog
 
 Adapted from `src/components/CalPopupButton.tsx` in your RepoAssistant project. The original project is unchanged.
 

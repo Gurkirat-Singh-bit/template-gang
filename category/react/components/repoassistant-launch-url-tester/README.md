@@ -1,4 +1,4 @@
-# RepoAssistant Launch Url Tester
+# URL checker form
 
 Adapted from `src/components/tools/launch-url-tester.tsx` in your RepoAssistant project. The original project is unchanged.
 

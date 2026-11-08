@@ -1,4 +1,4 @@
-# Mission India Approach
+# Split feature panel
 
 Adapted from `components/approach.tsx` in your Mission India project. The original project is unchanged.
 

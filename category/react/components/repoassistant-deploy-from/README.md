@@ -1,4 +1,4 @@
-# RepoAssistant Deploy From
+# Deployment platform links
 
 Adapted from `src/components/DeployFrom.tsx` in your RepoAssistant project. The original project is unchanged.
 
